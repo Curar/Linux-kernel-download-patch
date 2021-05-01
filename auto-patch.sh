@@ -68,7 +68,7 @@ function kernele() {
         grep -o "patch-[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+.xz" kernele.asc > patch.txt
         grep -o "patch-[[:digit:]]\+.[[:digit:]]\+.xz" kernele.asc >> patch.txt
         sort -V patch.txt > patch-sort.txt
-        readarray -t menu < patch-sort.txt
+        mapfile -t menu < patch-sort.txt
         echo $ADRES_KERNELA
         for i in "${!menu[@]}"; do
                 menu_list[$i]="${menu[$i]%% *}"
