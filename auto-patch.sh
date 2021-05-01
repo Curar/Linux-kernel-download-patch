@@ -44,7 +44,7 @@ export ADRES_KERNELA="https://cdn.kernel.org/pub/linux/kernel/v5.x/${wybor}"
 function exist() {
 echo -e "\e[33mI will check if you have the appropriate programs in the system\e[0m"
 sleep 2
-for program in curl gpg readarray; do
+for program in curl; do
         printf '%-10s' "$program"
   if hash "$program" 2>/dev/null; then
     echo -e "\e[32m- It is installed\e[0m"
