@@ -3,7 +3,7 @@
 # By Curar 2020r.
 #
 # Skrypt który automatycznie pobiera patch jądra kernela ze strony
-# https://kernel.org przy użyciem programu curl, gpg, readarray
+# https://kernel.org przy użyciem programu curl, gpg, mapfile
 # https://github.com/gpg/gnupg
 # https://gnupg.org/
 #
@@ -44,7 +44,7 @@ export ADRES_KERNELA="https://cdn.kernel.org/pub/linux/kernel/v5.x/${wybor}"
 function exist() {
 echo -e "\e[33mI will check if you have the appropriate programs in the system\e[0m"
 sleep 2
-for program in curl; do
+for program in curl mapfile; do
         printf '%-10s' "$program"
   if hash "$program" 2>/dev/null; then
     echo -e "\e[32m- It is installed\e[0m"
@@ -71,7 +71,7 @@ function kernele() {
         mapfile -t menu < patch-sort.txt
         echo $ADRES_KERNELA
         for i in "${!menu[@]}"; do
-                menu_list[$i]="${menu[$i]%% *}"
+                menu_list[$i]="${menu[$i]}"
         done
         echo -e "\e[32mChoose a kernel patch :\e[0m"
                 select wybor in "${menu_list[@]}" "EXIT"; do
