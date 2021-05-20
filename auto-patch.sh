@@ -3,7 +3,7 @@
 # By Curar 2020r.
 #
 # Skrypt który automatycznie pobiera patch jądra kernela ze strony
-# https://kernel.org przy użyciem programu curl, gpg, mapfile
+# https://kernel.org przy użyciem programu curl, mapfile
 # https://github.com/gpg/gnupg
 # https://gnupg.org/
 #
