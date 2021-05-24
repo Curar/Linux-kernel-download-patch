@@ -37,8 +37,8 @@ clear
 
 # Definicja zmiennych
 function zmienne() {
-export ADRES_KERNELA_PLIKI="https://cdn.kernel.org/pub/linux/kernel/v5.x/sha256sums.asc"
-export ADRES_KERNELA="https://cdn.kernel.org/pub/linux/kernel/v5.x/${wybor}"
+export ADRES_KERNELA_PLIKI="https://cdn.kernel.org/pub/linux/kernel/${galaz}/sha256sums.asc"
+export ADRES_KERNELA="https://cdn.kernel.org/pub/linux/kernel/${galaz}/${wybor}"
 }
 
 function exist() {
@@ -108,6 +108,29 @@ function kernele() {
 }
 
 while :; do
+unset menu_list
+echo -e "\e[32m${tablica_logo["0"]}\e[0m"
+select galaz in "Downloads kernel 4.x" "Downloads kernel 5.x" "EXIT"; do
+	case "$galaz" in
+		"Downloads kernel 4.x")
+			unset galaz
+			unset wybor
+			unset menu
+			galaz="v4.x"
+		;;
+		"Downloads kernel 5.x")
+			unset galaz
+			unset wybor
+			unset menu
+			galaz="v5.x"
+		;;
+	"EXIT")
+		clear
+		exit 1
+		;;
+esac
+break
+done
 exist;
 kernele;
 done
