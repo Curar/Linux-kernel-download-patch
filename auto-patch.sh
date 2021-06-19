@@ -85,7 +85,6 @@ function kernele() {
                 case "$wybor" in
                         "EXIT")
                         clear
-                        exit 1
                         ;;
                         *)
                         echo "You chose : $wybor"
