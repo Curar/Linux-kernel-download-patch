@@ -41,6 +41,13 @@ export ADRES_KERNELA_PLIKI="https://cdn.kernel.org/pub/linux/kernel/${galaz}/sha
 export ADRES_KERNELA="https://cdn.kernel.org/pub/linux/kernel/${galaz}/${wybor}"
 }
 
+function wyczysc() {
+unset menu_list
+unset galaz
+unset wybor
+unset menu
+}
+
 function exist() {
 echo -e "\e[33mI will check if you have the appropriate programs in the system\e[0m"
 sleep 2
@@ -108,26 +115,17 @@ function kernele() {
 }
 
 while :; do
-unset menu_list
+wyczysc;
 echo -e "\e[32m${tablica_logo["0"]}\e[0m"
 select galaz in "Downloads kernel patch 3.x" "Downloads kernel patch 4.x" "Downloads kernel patch 5.x" "EXIT"; do
 	case "$galaz" in
 		"Downloads kernel patch 3.x")
-			unset galaz
-			unset wybor
-			unset menu
 			galaz="v3.x"
 		;;
 		"Downloads kernel patch 4.x")
-			unset galaz
-			unset wybor
-			unset menu
 			galaz="v4.x"
 		;;
 		"Downloads kernel patch 5.x")
-			unset galaz
-			unset wybor
-			unset menu
 			galaz="v5.x"
 		;;
 	"EXIT")
